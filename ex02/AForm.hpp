@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <string>
 #include <iostream>
@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 private:
     const std::string _name;
     bool _signed;
@@ -16,12 +16,12 @@ private:
     const int _gradeToExecute;
 
 public:
-    Form();
-    Form(const std::string& name, int gradeToSign, int gradeToExecute);
-    Form(const Form& src);
-    ~Form();
+    AForm();
+    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+    AForm(const AForm& src);
+    virtual ~AForm();
     
-    Form& operator=(const Form& rhs);
+    AForm& operator=(const AForm& rhs);
     
     const std::string& getName() const;
     bool isSigned() const;
@@ -29,6 +29,11 @@ public:
     int getGradeToExecute() const;
     
     void beSigned(const Bureaucrat& bureaucrat);
+    
+    // Pure virtual function to make the class abstract
+    virtual void execute(Bureaucrat const & executor) const = 0;
+    // Helper method to check execution requirements
+    void checkExecutionRequirements(Bureaucrat const & executor) const;
     
     class GradeTooHighException : public std::exception {
     public:
@@ -39,8 +44,13 @@ public:
     public:
         virtual const char* what() const throw();
     };
+    
+    class FormNotSignedException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+    };
 };
 
-std::ostream& operator<<(std::ostream& o, const Form& form);
+std::ostream& operator<<(std::ostream& o, const AForm& form);
 
 #endif
