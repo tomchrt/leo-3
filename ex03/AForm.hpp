@@ -30,7 +30,9 @@ public:
     
     void beSigned(const Bureaucrat& bureaucrat);
     
+    // Pure virtual function to make the class abstract
     virtual void execute(Bureaucrat const & executor) const = 0;
+    // Helper method to check execution requirements
     void checkExecutionRequirements(Bureaucrat const & executor) const;
     
     class GradeTooHighException : public std::exception {

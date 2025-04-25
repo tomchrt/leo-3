@@ -19,20 +19,18 @@ int main()
         std::cout << form1 << std::endl;
         std::cout << form2 << std::endl;
 
-        // Tests supplémentaires
         try {
-            Form invalidForm("Invalid", 0, 30); // Should throw GradeTooHighException
+            Form invalidForm("Invalid", 0, 30);
         } catch (std::exception &e) {
             std::cout << "Exception caught: " << e.what() << std::endl;
         }
 
         try {
-            Form invalidForm2("Invalid2", 151, 30); // Should throw GradeTooLowException
+            Form invalidForm2("Invalid2", 151, 30);
         } catch (std::exception &e) {
             std::cout << "Exception caught: " << e.what() << std::endl;
         }
 
-        // Test de copie
         Form form3(form2);
         std::cout << "Original: " << form2 << std::endl;
         std::cout << "Copy: " << form3 << std::endl;
