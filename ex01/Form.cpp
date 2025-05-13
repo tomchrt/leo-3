@@ -22,7 +22,6 @@ Form::~Form() {
 
 Form& Form::operator=(const Form& rhs) {
     if (this != &rhs) {
-        // Cannot copy const attributes
         _signed = rhs._signed;
     }
     return *this;

@@ -32,7 +32,6 @@ int main()
     }
 
     try {
-        // Test increment à la limite
         Bureaucrat high("High", 1);
         std::cout << high << std::endl;
         high.incrementGrade();
@@ -42,7 +41,6 @@ int main()
     }
 
     try {
-        // Test decrement à la limite
         Bureaucrat low("Low", 150);
         std::cout << low << std::endl;
         low.decrementGrade();

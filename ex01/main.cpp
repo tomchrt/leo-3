@@ -13,8 +13,8 @@ int main()
         std::cout << form1 << std::endl;
         std::cout << form2 << std::endl;
 
-        bob.signForm(form2); // Should succeed
-        bob.signForm(form1); // Should fail
+        bob.signForm(form2);
+        bob.signForm(form1);
 
         std::cout << form1 << std::endl;
         std::cout << form2 << std::endl;

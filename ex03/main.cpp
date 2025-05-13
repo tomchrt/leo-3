@@ -31,7 +31,7 @@ int main() {
         std::cout << "\n--- Testing non-existent form ---" << std::endl;
         try {
             AForm* nonExistentForm = someRandomIntern.makeForm("coffee making", "Coffee Machine");
-            (void)nonExistentForm; // To avoid unused variable warning
+            (void)nonExistentForm;
         } catch (std::exception& e) {
             std::cout << "Error: " << e.what() << std::endl;
         }

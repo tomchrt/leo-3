@@ -19,7 +19,6 @@ Bureaucrat::~Bureaucrat() {
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
     if (this != &rhs) {
-        // Cannot copy const name
         _grade = rhs._grade;
     }
     return *this;
